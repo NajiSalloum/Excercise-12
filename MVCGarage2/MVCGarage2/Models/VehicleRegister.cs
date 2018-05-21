@@ -23,6 +23,9 @@ namespace MVCGarage2.Models
                 temp = 0.0;
             }
             MinLength = temp;
+
+            NrofWheels = 1;
+            Length = 1;
         }
         public double MinLength { get; set; }
         public double MaxLength { get; set; }
