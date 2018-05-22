@@ -1,10 +1,10 @@
 ﻿@model MVCGarage2.Models.Vehicle
 
 @{
-    ViewBag.Title = "Park";
+    ViewBag.Title = "Parked";
 }
 
-<h2>Park</h2>
+<h2>Parked</h2>
 
 <div>
     <h4>Vehicle</h4>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NrofWheels)
+            @Html.DisplayName("Nr of wheels")
         </dt>
 
         <dd>
@@ -59,7 +59,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FuelType)
+            @Html.DisplayName("Fuel type")
         </dt>
 
         <dd>
@@ -67,7 +67,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ParkedTime)
+            @Html.DisplayName("Time parked")
         </dt>
 
         <dd>
@@ -77,6 +77,5 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("To List", "Overview")
 </p>

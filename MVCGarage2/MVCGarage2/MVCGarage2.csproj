@@ -160,7 +160,11 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\VehicleCheckOut.cs" />
+    <Compile Include="Models\VehicleOverview.cs" />
+    <Compile Include="Models\VehicleReceipt.cs" />
     <Compile Include="Models\VehicleRegister.cs" />
+    <Compile Include="Models\VehicleSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +191,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\VehicleSearch.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -202,11 +207,13 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Vehicles\Register.cshtml" />
-    <Content Include="Views\Vehicles\Delete.cshtml" />
+    <Content Include="Views\Vehicles\CheckOut.cshtml" />
     <Content Include="Views\Vehicles\Details.cshtml" />
     <Content Include="Views\Vehicles\Edit.cshtml" />
-    <Content Include="Views\Vehicles\Index.cshtml" />
+    <Content Include="Views\Vehicles\Overview.cshtml" />
     <Content Include="Views\Vehicles\Park.cshtml" />
+    <Content Include="Views\Vehicles\Receipt.cshtml" />
+    <Content Include="Views\Vehicles\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

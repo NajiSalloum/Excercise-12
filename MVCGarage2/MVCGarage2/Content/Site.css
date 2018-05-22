@@ -22,3 +22,15 @@ select,
 textarea {
     max-width: 280px;
 }
+
+input[type="checkbox"]
+{
+
+    width: 15px;
+    height: 15px;
+}
+
+form > div > div > div > div.form-div-align
+{
+    vertical-align: middle;
+}

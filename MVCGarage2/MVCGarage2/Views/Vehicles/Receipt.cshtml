@@ -1,0 +1,57 @@
+﻿@model MVCGarage2.Models.VehicleReceipt
+
+@{
+    ViewBag.Title = "Receipt";
+}
+
+<h2>Receipt</h2>
+
+<div>
+    <h4>Check out receipt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Regnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Regnr)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Arrival time")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParkedTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Time now")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NowTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Total time")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("To List", "Overview")
+</p>
