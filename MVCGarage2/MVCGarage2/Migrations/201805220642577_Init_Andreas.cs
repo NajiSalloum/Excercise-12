@@ -3,7 +3,7 @@ namespace MVCGarage2.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class Init_Andreas : DbMigration
     {
         public override void Up()
         {

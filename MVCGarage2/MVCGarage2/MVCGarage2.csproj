@@ -154,9 +154,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805211202044_Init.cs" />
-    <Compile Include="Migrations\201805211202044_Init.Designer.cs">
-      <DependentUpon>201805211202044_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201805220642577_Init_Andreas.cs" />
+    <Compile Include="Migrations\201805220642577_Init_Andreas.Designer.cs">
+      <DependentUpon>201805220642577_Init_Andreas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Vehicle.cs" />
@@ -224,8 +224,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805211202044_Init.resx">
-      <DependentUpon>201805211202044_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805220642577_Init_Andreas.resx">
+      <DependentUpon>201805220642577_Init_Andreas.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -242,7 +243,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>65242</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
