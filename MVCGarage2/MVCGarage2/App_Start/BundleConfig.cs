@@ -8,8 +8,12 @@ namespace MVCGarage2
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/vehicleregister").Include(
+                        "~/Scripts/VehicleRegister.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/vehiclesearch").Include(
-                        "~/Scripts/VehicleSearch.js"));
+                        "~/Scripts/VehicleSearch.js",
+                        "~/Scripts/jquery-ui-{version}.js"));
             
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
@@ -28,7 +32,11 @@ namespace MVCGarage2
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/PagedList.css"));
+
+            bundles.Add(new StyleBundle("~/Content/jq-ui-css").Include(
+                      "~/Content/themes/base/jquery-ui.css"));
         }
     }
 }

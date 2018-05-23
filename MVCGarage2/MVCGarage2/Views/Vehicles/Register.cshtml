@@ -1,7 +1,9 @@
 ﻿@model MVCGarage2.Models.VehicleRegister
 
 @{
-    ViewBag.Title = "Register";
+                /**/
+
+                ViewBag.Title = "Register";
 }
 
 <h2>Register</h2>
@@ -26,8 +28,8 @@
         <div class="form-group">
             @Html.Label("Vehicle type", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.VehicleOfType, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.VehicleOfType, "", new { @class = "text-danger" })
+                @Html.EnumDropDownListFor(model => model.Type, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -58,7 +60,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Length, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Length, new { htmlAttributes = new { @class = "form-control", @type = "number", @min = Model.MinLength, @max = Model.MaxLength, @step = "0.01"} })
+                @Html.EditorFor(model => model.Length, new { htmlAttributes = new { @class = "form-control", @type = "number", @min = Model.MinLength, @max = Model.MaxLength, @step = "0.01" } })
                 @Html.ValidationMessageFor(model => model.Length, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -67,9 +69,9 @@
             @Html.Label("Fuel type", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@foreach (var item in Enum.GetValues(Model.FuelType.GetType()))
-                {
-                   @item;
-                }*@
+                    {
+                       @item;
+                    }*@
                 @Html.EnumDropDownListFor(model => model.FuelType, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.FuelType, "", new { @class = "text-danger" })
             </div>
@@ -78,6 +80,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Register and park" class="btn btn-primary" />
+                <span id="warningText" class="text-danger hidden">RegNr already exist</span>
             </div>
         </div>
     </div>
@@ -89,4 +92,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/vehicleregister")
 }

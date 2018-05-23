@@ -1,5 +1,7 @@
 ﻿@model MVCGarage2.Models.VehicleSearch
 
+@Styles.Render("~/Content/jq-ui-css")
+
 @{
     ViewBag.Title = "Search";
 }
@@ -30,10 +32,10 @@
             @Html.Label("Vehicle type", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="form-inline form-div-align">
-                    @Html.EnumDropDownListFor(model => model.VehicleOfType, new { @class = "form-control" })
+                    @Html.EnumDropDownListFor(model => model.Type, new { @class = "form-control" })
                     @Html.CheckBox("typeBox", false)
                 </div>
-                @Html.ValidationMessageFor(model => model.VehicleOfType, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
             </div>
         </div>
 

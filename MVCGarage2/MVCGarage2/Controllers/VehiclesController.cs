@@ -7,8 +7,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using MVCGarage2.DataAccessLayer;
 using MVCGarage2.Models;
+using PagedList;
 
 namespace MVCGarage2.Controllers
 {
@@ -17,18 +19,68 @@ namespace MVCGarage2.Controllers
         private StorageContext db = new StorageContext();
 
         // GET: Vehicles
-        public ActionResult Overview(VehicleType? VehicleOfType, Color? Color, FuelType? FuelType, string Regnr = "", string Brand = "")
+        public ActionResult Overview(VehicleType? Type, Color? Color, FuelType? FuelType, string Regnr = "", string Brand = "", string SortOn = "", bool Ascending = true, int page = 1)
         {
+            var vehiclesTemp = db.Vehicles.Where(v => (Regnr == "" || v.Regnr.Contains(Regnr)) &&
+                                                     (Type == null || v.Type == Type.ToString()) &&
+                                                     (Color == null || v.Color == Color.ToString()) &&
+                                                     (FuelType == null || v.FuelType == FuelType.ToString()) &&
+                                                     (Brand.Trim() == "" || v.Brand.Contains(Brand.Trim())));
+
+            switch (SortOn)
+            {
+                case "Regnr":
+                    if (Ascending)
+                        vehiclesTemp = vehiclesTemp.OrderBy(v => v.Regnr);
+                    else
+                        vehiclesTemp = vehiclesTemp.OrderByDescending(v => v.Regnr);
+                    break;
+                case "Type":
+                    if (Ascending)
+                        vehiclesTemp = vehiclesTemp.OrderBy(v => v.Type);
+                    else
+                        vehiclesTemp = vehiclesTemp.OrderByDescending(v => v.Type);
+                    break;
+                case "Color":
+                    if (Ascending)
+                        vehiclesTemp = vehiclesTemp.OrderBy(v => v.Color);
+                    else
+                        vehiclesTemp = vehiclesTemp.OrderByDescending(v => v.Color);
+                    break;
+                case "ParkedTime":
+                    if (Ascending)
+                        vehiclesTemp = vehiclesTemp.OrderBy(v => v.ParkedTime);
+                    else
+                        vehiclesTemp = vehiclesTemp.OrderByDescending(v => v.ParkedTime);
+                    break;
+                default:
+                    break;
+            }
+
             List<VehicleOverview> vehicles = new List<VehicleOverview>();
-            foreach (var v in db.Vehicles.Where(v => (Regnr == "" || v.Regnr.Contains(Regnr)) &&
-                                                     (VehicleOfType == null || v.Type == VehicleOfType.ToString()) &&
-                                                     (Color == null || v.Color==Color.ToString()) &&
-                                                     (FuelType==null || v.FuelType==FuelType.ToString()) &&
-                                                     (Brand.Trim()=="" || v.Brand.Contains(Brand.Trim()))).ToList()) 
+            foreach (var v in vehiclesTemp.ToList())
             {
                 vehicles.Add(new VehicleOverview(v.Id, v.Regnr, v.Type, v.Color, v.ParkedTime));
             }
-            return View(vehicles);
+
+            var queryDictionary = new RouteValueDictionary();
+            if (Regnr != "")
+                queryDictionary.Add("Regnr",Regnr);
+            if (Type != null)
+                queryDictionary.Add("Type", Type);
+            if (Color != null)
+                queryDictionary.Add("Color", Color);
+            if (Brand != "")
+                queryDictionary.Add("Brand", Brand);
+            if (FuelType != null)
+                queryDictionary.Add("FuelType", FuelType);
+
+            queryDictionary.Add("SortOn", "");
+            queryDictionary.Add("Ascending", true);
+
+            var vehiclesOverview = new VehiclesOverview(vehicles.ToPagedList(Math.Max(page, 1), 10), SortOn, Ascending, queryDictionary);
+
+            return View(vehiclesOverview);
         }
 
         // GET: Vehicles/Details/5
@@ -52,12 +104,23 @@ namespace MVCGarage2.Controllers
             return View(new VehicleRegister());
         }
 
+        public JsonResult UniqueRegnr(string DataName, string text)
+        {
+            if (DataName == "Regnr")
+            {
+                var data = db.Vehicles.Where(v => v.Regnr.Equals(text.Trim(), StringComparison.InvariantCultureIgnoreCase)).Select(v => new { text = v.Regnr }).ToList();
+                if (data != null)
+                    return Json(data);
+            }
+            Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            return null;
+        }
         // POST: Vehicles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Park(string Regnr, VehicleType VehicleOfType, Color Color, string Brand, int NrofWheels, double Length, FuelType FuelType)
+        public ActionResult Park(string Regnr, VehicleType Type, Color Color, string Brand, int NrofWheels, double Length, FuelType FuelType)
         {
             if (db.Vehicles.Any(v => v.Regnr == Regnr))
             {
@@ -66,8 +129,8 @@ namespace MVCGarage2.Controllers
 
             Vehicle vehicle = new Vehicle()
             {
-                Regnr = Regnr,
-                Type = VehicleOfType.ToString(),
+                Regnr = Regnr.ToUpper(),
+                Type = Type.ToString(),
                 Color = Color.ToString(),
                 Brand = Brand,
                 NrofWheels = NrofWheels,
@@ -89,6 +152,23 @@ namespace MVCGarage2.Controllers
         public ActionResult Search()
         {
             return View(new VehicleSearch());
+        }
+
+        public JsonResult Autocomplete(string DataName, string text)
+        {
+            if (DataName == "Regnr")
+            {
+                var data = db.Vehicles.Where(v => v.Regnr.Substring(0, text.Trim().Length).Equals(text.Trim(), StringComparison.InvariantCultureIgnoreCase)).Select(v => new { text = v.Regnr }).ToList();
+                if (data != null)
+                    return Json(data);
+            }
+            else if (DataName == "Brand")
+            {
+                var data = db.Vehicles.Where(v => v.Brand.Substring(0, text.Trim().Length).Equals(text.Trim(), StringComparison.InvariantCultureIgnoreCase)).Select(v => new { text = v.Brand }).ToList();
+                if (data != null)
+                    return Json(data);
+            }
+            return null;
         }
 
         //// GET: Vehicles/Edit/5
@@ -148,7 +228,7 @@ namespace MVCGarage2.Controllers
             db.Vehicles.Remove(v);
             db.SaveChanges();
 
-            VehicleReceipt info = new VehicleReceipt(v.Id, v.Regnr, v.ParkedTime, DateTime.Now);
+            VehicleReceipt info = new VehicleReceipt(v.Id, v.Regnr, v.Type, v.ParkedTime, DateTime.Now);
             return View(info);
         }
 

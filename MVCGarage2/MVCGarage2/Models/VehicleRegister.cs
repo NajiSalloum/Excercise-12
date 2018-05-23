@@ -34,7 +34,7 @@ namespace MVCGarage2.Models
         [StringLength(10)]
         [RegularExpression("[a-zA-Z0-9]+", ErrorMessage = "Must be leters and numbers, only")]
         public string Regnr { get; set; }
-        public VehicleType VehicleOfType { get; set; }
+        public VehicleType Type { get; set; }
         public Color Color { get; set; }
         [Required]
         [StringLength(25, ErrorMessage = "Maximum 25 chars")]

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MVCGarage2.Models.VehicleOverview>
+﻿@model MVCGarage2.Models.VehiclesOverview
 
 @{
     ViewBag.Title = "Overview";
@@ -12,39 +12,71 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Regnr)
+            @{
+                Model.QueryDictionary["SortOn"] = "Regnr";
+                Model.QueryDictionary["Ascending"] = ViewBag.SortOn == "Regnr" ? !ViewBag.Ascending : true;
+            }
+            @Html.ActionLink("Regnr", "Overview", Model.QueryDictionary)
+            <i class="glyphicon @(ViewBag.SortOn == "Regnr" && !ViewBag.Ascending ? "glyphicon-chevron-down" : "glyphicon-chevron-up")"></i>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Type)
+            @{
+                Model.QueryDictionary["SortOn"] = "Type";
+                Model.QueryDictionary["Ascending"] = ViewBag.SortOn == "Type" ? !ViewBag.Ascending : true;
+            }
+            @Html.ActionLink("Type", "Overview", Model.QueryDictionary)
+            <i class="glyphicon @(ViewBag.SortOn == "Type" && !ViewBag.Ascending ? "glyphicon-chevron-down" : "glyphicon-chevron-up")"></i>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Color)
+            @{
+                Model.QueryDictionary["SortOn"] = "Color";
+                Model.QueryDictionary["Ascending"] = ViewBag.SortOn == "Color" ? !ViewBag.Ascending : true;
+            }
+            @Html.ActionLink("Color", "Overview", Model.QueryDictionary)
+            <i class="glyphicon @(ViewBag.SortOn == "Color" && !ViewBag.Ascending ? "glyphicon-chevron-down" : "glyphicon-chevron-up")"></i>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ParkedTime)
+            @{
+                Model.QueryDictionary["SortOn"] = "ParkedTime";
+                Model.QueryDictionary["Ascending"] = ViewBag.SortOn == "ParkedTime" ? !ViewBag.Ascending : true;
+            }
+            @Html.ActionLink("Arrival time", "Overview", Model.QueryDictionary)
+            <i class="glyphicon @(ViewBag.SortOn == "ParkedTime" && !ViewBag.Ascending ? "glyphicon-chevron-down" : "glyphicon-chevron-up")"></i>
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Regnr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Color)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParkedTime)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Check out", "CheckOut", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.Vehicles)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Regnr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParkedTime)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Check out", "CheckOut", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
+<div class="pagedList">
+    @{
+        Model.QueryDictionary["SortOn"] = Model.SortOn;
+        Model.QueryDictionary["Ascending"] = Model.Ascending;
+    }
+    @Html.PagedListPager(Model.Vehicles, (page) =>
+    {
+        Model.QueryDictionary["page"] = page;
+        return Url.Action("Overview", "Vehicles", Model.QueryDictionary);
+    }, PagedListRenderOptions.OnlyShowFivePagesAtATime)
+</div>

@@ -23,14 +23,15 @@ textarea {
     max-width: 280px;
 }
 
-input[type="checkbox"]
-{
+    input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+    }
 
-    width: 15px;
-    height: 15px;
+form > div > div > div > div.form-div-align {
+    vertical-align: middle;
 }
 
-form > div > div > div > div.form-div-align
-{
-    vertical-align: middle;
+i.glyphicon {
+    font-size: 10px;
 }

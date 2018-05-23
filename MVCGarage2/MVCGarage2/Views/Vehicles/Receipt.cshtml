@@ -19,6 +19,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
             @Html.DisplayName("Arrival time")
         </dt>
 
@@ -53,5 +61,5 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("To List", "Overview")
+    @Html.ActionLink("To List", "Overview", null, new { @class = "hidden-print" })
 </p>

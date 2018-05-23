@@ -7,10 +7,11 @@ namespace MVCGarage2.Models
 {
     public class VehicleReceipt
     {
-        public VehicleReceipt(int id, string regnr, DateTime parkedTime, DateTime nowTime)
+        public VehicleReceipt(int id, string regnr, string type, DateTime parkedTime, DateTime nowTime)
         {
             Id = id;
             Regnr = regnr;
+            Type = type;
             ParkedTime = parkedTime;
             NowTime = nowTime;
             TimeSpan ts = NowTime - ParkedTime;
@@ -20,6 +21,7 @@ namespace MVCGarage2.Models
 
         public int Id { get; set; }
         public string Regnr { get; set; }
+        public string Type { get; set; }
         public DateTime ParkedTime { get; set; }
         public DateTime NowTime { get; set; }
         public string TotalTime { get; set; }
