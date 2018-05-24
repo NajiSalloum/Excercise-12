@@ -1,12 +1,25 @@
-﻿body {
+﻿@font-face {
+    font-family: 'Candy';
+    src: url('fonts/SWEETASCANDY.TTF');
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
+}
+
+.homebody {
+    background-color: rgb(0, 200, 255);
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+a:active, a:hover {
+    text-decoration-line: none;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -34,4 +47,26 @@ form > div > div > div > div.form-div-align {
 
 i.glyphicon {
     font-size: 10px;
+}
+
+.verticle-center {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.sometext {
+    display: block;
+    font-size: 30px;
+    font-family: 'Candy', sans-serif;
+    color: black;
+}
+
+.homeimg {
+    width: 200px;
+}
+
+.emptyrow {
+    height: 30px;
 }

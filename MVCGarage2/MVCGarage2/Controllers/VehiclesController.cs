@@ -88,7 +88,7 @@ namespace MVCGarage2.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Overview");
             }
             Vehicle vehicle = db.Vehicles.Find(id);
             if (vehicle == null)

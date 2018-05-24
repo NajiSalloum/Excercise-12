@@ -24,7 +24,7 @@ namespace MVCGarage2.Migrations
                 NrofWheels=4,
                 Length=3.1,
                 FuelType="Bensin",
-                ParkedTime= DateTime.Now
+                ParkedTime= new DateTime(1998,6,24)
              });
             context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
             {
@@ -35,7 +35,7 @@ namespace MVCGarage2.Migrations
                 NrofWheels = 6,
                 Length = 12.7,
                 FuelType = "Diesel",
-                ParkedTime = DateTime.Now
+                ParkedTime = new DateTime(2018, 5, 24)
             });
             context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
             {
@@ -46,7 +46,7 @@ namespace MVCGarage2.Migrations
                 NrofWheels = 2,
                 Length = 4.1,
                 FuelType = "Biogas",
-                ParkedTime = DateTime.Now
+                ParkedTime = new DateTime(2018, 5, 22, 8, 54, 12)
             });
             context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
             {
@@ -57,7 +57,7 @@ namespace MVCGarage2.Migrations
                 NrofWheels = 2,
                 Length = 3.12,
                 FuelType = "Ethenol",
-                ParkedTime = DateTime.Now
+                ParkedTime = new DateTime(2018, 5, 23, 18, 54, 12)
             });
             context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
             {
@@ -68,7 +68,7 @@ namespace MVCGarage2.Migrations
                 NrofWheels = 4,
                 Length = 4,
                 FuelType = "Bensin",
-                ParkedTime = DateTime.Now
+                ParkedTime = new DateTime(2018, 5, 25, 8, 54, 12)
             });
             context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
             {

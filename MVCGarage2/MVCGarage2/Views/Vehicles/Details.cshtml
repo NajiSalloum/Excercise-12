@@ -71,7 +71,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ParkedTime)
+            @Html.Raw(Model.ParkedTime.ToString("yyyy-MM-dd HH:mm"))
         </dd>
 
     </dl>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -16,7 +17,9 @@ namespace MVCGarage2.Models
             NowTime = nowTime;
             TimeSpan ts = NowTime - ParkedTime;
             TotalTime = $"{Math.Floor(ts.TotalDays)} days, {ts.Hours} hours and {ts.Minutes} minutes.";
-            Price = $"{((ts.TotalMinutes + 1) * 5):C2} kr";
+
+            var cultureInfo = CultureInfo.GetCultureInfo("sv-SE");
+            Price = String.Format(cultureInfo, "{0:C}", $"{((ts.TotalMinutes + 1) * 5)}");
         }
 
         public int Id { get; set; }
@@ -28,3 +31,4 @@ namespace MVCGarage2.Models
         public string Price { get; set; }
     }
 }
+
