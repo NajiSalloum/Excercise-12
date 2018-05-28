@@ -16,6 +16,7 @@ namespace MVCGarage2.Models
         public string Regnr { get; set; }
         [Required]
         [StringLength(15)]
+        [Display(Name = "Vehicle type")]
         public string Type { get; set; }
         [Required]
         [StringLength(15)]
@@ -26,14 +27,18 @@ namespace MVCGarage2.Models
         public string Brand { get; set; }
         [Required]
         [Range(1,18)]
+        [Display(Name = "Wheel count")]
         public int NrofWheels { get; set; }
         [Required]
         [Range(0.1, 30.0)]
         public double Length { get; set; }
         [Required]
         [StringLength(15)]
+        [Display(Name = "Fuel type")]
         public string FuelType { get; set; }
         [Required]
+        [Display(Name = "Arrival time")]
+        [UIHint("DateFormat")]
         public DateTime ParkedTime { get; set; }
 
     }

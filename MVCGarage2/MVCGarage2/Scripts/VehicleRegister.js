@@ -23,7 +23,7 @@ function OnFocusOut(e) {
                 },
             context: this,
             success: function (data) {
-                if (data != null && data.length > 0) {
+                if (data !== null && data.length > 0) {
                     $(this).parent().parent().addClass("has-error");
                     $("#warningText").removeClass("hidden");
                 }
@@ -35,7 +35,7 @@ function OnFocusOut(e) {
             error: function (data) {
                 $(this).parent().removeClass("has-error");
                 $("#warningText").addClass("hidden");
-            },
+            }
         });
 }
 

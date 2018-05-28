@@ -35,6 +35,9 @@ namespace MVCGarage2
                       "~/Content/site.css",
                       "~/Content/PagedList.css"));
 
+            bundles.Add(new StyleBundle("~/Content/receipt-css").Include(
+                      "~/Content/Receipt.css"));
+
             bundles.Add(new StyleBundle("~/Content/jq-ui-css").Include(
                       "~/Content/themes/base/jquery-ui.css"));
         }

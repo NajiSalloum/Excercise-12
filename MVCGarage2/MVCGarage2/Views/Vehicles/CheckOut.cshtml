@@ -19,15 +19,15 @@
         </dd>
 
         <dt>
-            @Html.DisplayName("Arrival time")
+            @Html.DisplayNameFor(model => model.ParkedTime)
         </dt>
 
         <dd>
-            @Html.Raw(Model.ParkedTime.ToString("yyyy-MM-dd HH:mm"))
+            @Html.DisplayFor(model => model.ParkedTime)
         </dd>
 
         <dt>
-            @Html.DisplayName("Time now")
+            @Html.DisplayNameFor(model => model.NowTime)
         </dt>
 
         <dd>

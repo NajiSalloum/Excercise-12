@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayName("Nr of wheels")
+            @Html.DisplayNameFor(model => model.NrofWheels)
         </dt>
 
         <dd>
@@ -59,7 +59,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayName("Fuel type")
+            @Html.DisplayNameFor(model => model.FuelType)
         </dt>
 
         <dd>
@@ -67,11 +67,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayName("Time parked")
+            @Html.DisplayNameFor(model => model.ParkedTime)
         </dt>
 
         <dd>
-            @Html.Raw(Model.ParkedTime.ToString("yyyy-MM-dd HH:mm"))
+            @Html.DisplayFor(model => model.ParkedTime)
         </dd>
 
     </dl>

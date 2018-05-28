@@ -59,7 +59,7 @@
                 @Html.DisplayFor(modelItem => item.Color)
             </td>
             <td>
-                @Html.Raw(item.ParkedTime.ToString("yyyy-MM-dd HH:mm"))
+                @Html.DisplayFor(modelItem => item.ParkedTime)
             </td>
             <td>
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
@@ -72,7 +72,7 @@
 <div class="pagedList">
     @{
         Model.QueryDictionary["SortOn"] = Model.SortOn;
-        Model.QueryDictionary["Ascending"] = Model.Ascending;
+        Model.QueryDictionary["Ascending"] = Model.SortOn == "" ? "" : Model.Ascending.ToString();
     }
     @Html.PagedListPager(Model.Vehicles, (page) =>
     {
