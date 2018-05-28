@@ -11,6 +11,9 @@ namespace MVCGarage2
             bundles.Add(new ScriptBundle("~/bundles/vehicleregister").Include(
                         "~/Scripts/VehicleRegister.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/vehicleprintout").Include(
+                        "~/Scripts/PrintOut.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/vehiclesearch").Include(
                         "~/Scripts/VehicleSearch.js",
                         "~/Scripts/jquery-ui-{version}.js"));

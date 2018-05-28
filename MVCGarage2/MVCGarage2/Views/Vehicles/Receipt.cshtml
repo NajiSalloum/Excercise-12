@@ -63,5 +63,12 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("To List", "Overview", null, new { @class = "hidden-print" })
+    <span  class="hidden-print">
+        <button class="printout btn btn-success">Print</button> |
+        @Html.ActionLink("To List", "Overview")
+    </span>
 </p>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/vehicleprintout")
+}
