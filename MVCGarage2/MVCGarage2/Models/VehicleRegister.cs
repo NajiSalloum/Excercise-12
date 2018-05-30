@@ -10,6 +10,7 @@ namespace MVCGarage2.Models
     {
         public VehicleRegister()
         {
+            // Set min and max properties for Length property by checking Lengths Range.minimum validation
             var rng = (RangeAttribute)typeof(VehicleRegister).GetProperty("Length").GetCustomAttributes(typeof(RangeAttribute), false).First();
             double temp;
             if (!double.TryParse(rng?.Maximum?.ToString() ?? "0.0", out temp))

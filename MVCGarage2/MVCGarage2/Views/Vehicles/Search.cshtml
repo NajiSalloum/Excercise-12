@@ -21,7 +21,7 @@
             @Html.LabelFor(model => model.Regnr, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="form-inline form-div-align">
-                    @Html.EditorFor(model => model.Regnr, new { htmlAttributes = new { @class = "form-control inline-block" } })
+                    @Html.EditorFor(model => model.Regnr, new { htmlAttributes = new { @class = "form-control inline-block", autofocus = "autofocus" } })
                     @Html.CheckBox("regnrBox", false)
                 </div>
                 @Html.ValidationMessageFor(model => model.Regnr, "", new { @class = "text-danger" })
