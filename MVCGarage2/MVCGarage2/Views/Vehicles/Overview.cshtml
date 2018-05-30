@@ -17,7 +17,7 @@
                 Model.QueryDictionary["Ascending"] = Model.SortOn == "Regnr" ? !Model.Ascending : true;
             }
             @Html.ActionLink("Regnr", "Overview", Model.QueryDictionary)
-            <i class="glyphicon @(Model.SortOn == "Regnr" && !Model.Ascending ? "glyphicon-chevron-down" : "glyphicon-chevron-up")"></i>
+            <i class="glyphicon @(Model.SortOn != "Regnr" ? "" : !Model.Ascending ? "glyphicon-chevron-down" : "glyphicon-chevron-up")"></i>
         </th>
         <th>
             @{
@@ -25,7 +25,7 @@
                 Model.QueryDictionary["Ascending"] = Model.SortOn == "Type" ? !Model.Ascending : true;
             }
             @Html.ActionLink("Type", "Overview", Model.QueryDictionary)
-            <i class="glyphicon @(Model.SortOn == "Type" && !Model.Ascending ? "glyphicon-chevron-down" : "glyphicon-chevron-up")"></i>
+            <i class="glyphicon @(Model.SortOn != "Type" ? "" : !Model.Ascending ? "glyphicon-chevron-down" : "glyphicon-chevron-up")"></i>
         </th>
         <th>
             @{
@@ -33,7 +33,7 @@
                 Model.QueryDictionary["Ascending"] = Model.SortOn == "Color" ? !Model.Ascending : true;
             }
             @Html.ActionLink("Color", "Overview", Model.QueryDictionary)
-            <i class="glyphicon @(Model.SortOn == "Color" && !Model.Ascending ? "glyphicon-chevron-down" : "glyphicon-chevron-up")"></i>
+            <i class="glyphicon @(Model.SortOn != "Color" ? "" : !Model.Ascending ? "glyphicon-chevron-down" : "glyphicon-chevron-up")"></i>
         </th>
         <th>
             @{
@@ -41,7 +41,7 @@
                 Model.QueryDictionary["Ascending"] = Model.SortOn == "ParkedTime" ? !Model.Ascending : true;
             }
             @Html.ActionLink("Arrival time", "Overview", Model.QueryDictionary)
-            <i class="glyphicon @(Model.SortOn == "ParkedTime" && !Model.Ascending ? "glyphicon-chevron-down" : "glyphicon-chevron-up")"></i>
+            <i class="glyphicon @(Model.SortOn != "ParkedTime" ? "" : !Model.Ascending ? "glyphicon-chevron-down" : "glyphicon-chevron-up")"></i>
         </th>
         <th></th>
     </tr>
