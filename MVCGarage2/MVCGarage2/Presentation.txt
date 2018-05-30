@@ -24,6 +24,7 @@ Park (Parked, CheckIn)
 Search
   Autofocus
   Dropdowns
+  Autocomplete
   Validation
   JS-script auto-check checkbox
   JS-script
