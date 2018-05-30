@@ -15,7 +15,7 @@ namespace MVCGarage2.Migrations
 
         protected override void Seed(MVCGarage2.DataAccessLayer.StorageContext context)
         {
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr="ABC123",
                 Type="Car",
@@ -26,7 +26,7 @@ namespace MVCGarage2.Migrations
                 FuelType="Bensin",
                 ParkedTime= new DateTime(1998,6,24)
              });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "SED234",
                 Type = "BUS",
@@ -37,7 +37,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Diesel",
                 ParkedTime = new DateTime(2018, 5, 24)
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "JKL456",
                 Type = "Bike",
@@ -48,7 +48,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Biogas",
                 ParkedTime = new DateTime(2018, 5, 22, 8, 54, 12)
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "DEF567",
                 Type = "Bike",
@@ -59,7 +59,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Ethenol",
                 ParkedTime = new DateTime(2018, 5, 23, 18, 54, 12)
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "FGH765",
                 Type = "Car",
@@ -70,7 +70,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = new DateTime(2018, 5, 25, 8, 54, 12)
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "TYU654",
                 Type = "Car",
@@ -81,7 +81,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "HGF472",
                 Type = "Car",
@@ -92,7 +92,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "BE4RT3",
                 Type = "Car",
@@ -103,7 +103,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "TAXI4U",
                 Type = "Car",
@@ -114,7 +114,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "SDF654",
                 Type = "Car",
@@ -125,7 +125,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "BVC364",
                 Type = "Car",
@@ -136,7 +136,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "MVCISCRAP",
                 Type = "Bus",
@@ -147,7 +147,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Biogas",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "ZBC123",
                 Type = "Car",
@@ -158,7 +158,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "ZED234",
                 Type = "BUS",
@@ -169,7 +169,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Diesel",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "ZKL456",
                 Type = "Bike",
@@ -180,7 +180,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Biogas",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "ZEF567",
                 Type = "Bike",
@@ -191,7 +191,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Ethenol",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "ZGH765",
                 Type = "Car",
@@ -202,7 +202,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "ZYU654",
                 Type = "Car",
@@ -213,7 +213,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "ZGF472",
                 Type = "Car",
@@ -224,7 +224,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "ZE4RT3",
                 Type = "Car",
@@ -235,7 +235,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "ZAXI4U",
                 Type = "Car",
@@ -246,7 +246,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "ZDF654",
                 Type = "Car",
@@ -257,7 +257,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "ZVC364",
                 Type = "Car",
@@ -268,7 +268,7 @@ namespace MVCGarage2.Migrations
                 FuelType = "Bensin",
                 ParkedTime = DateTime.Now
             });
-            context.Vehicles.AddOrUpdate(v => v.Regnr, new Vehicle()
+            context.Vehicles.AddOrUpdate(v => v.Regnr, new ParkedVehicle()
             {
                 Regnr = "ZVCISCRAP",
                 Type = "Bus",

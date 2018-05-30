@@ -90,7 +90,7 @@ namespace MVCGarage2.Controllers
             {
                 return RedirectToAction("Overview");
             }
-            Vehicle vehicle = db.Vehicles.Find(id);
+            ParkedVehicle vehicle = db.Vehicles.Find(id);
             if (vehicle == null)
             {
                 return HttpNotFound();
@@ -127,7 +127,7 @@ namespace MVCGarage2.Controllers
                 return RedirectToAction("Register");
             }
 
-            Vehicle vehicle = new Vehicle()
+            ParkedVehicle vehicle = new ParkedVehicle()
             {
                 Regnr = Regnr.ToUpper(),
                 Type = Type.ToString(),
@@ -179,7 +179,7 @@ namespace MVCGarage2.Controllers
                 return RedirectToAction("Overview");
                 //                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vehicle v = db.Vehicles.Find(id);
+            ParkedVehicle v = db.Vehicles.Find(id);
             VehicleCheckOut vehicle = new VehicleCheckOut(v.Id, v.Regnr, v.ParkedTime, DateTime.Now);
             if (vehicle == null)
             {
@@ -193,7 +193,7 @@ namespace MVCGarage2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Receipt(int id)
         {
-            Vehicle v = db.Vehicles.Find(id);
+            ParkedVehicle v = db.Vehicles.Find(id);
             db.Vehicles.Remove(v);
             db.SaveChanges();
 

@@ -11,6 +11,6 @@ namespace MVCGarage2.DataAccessLayer
         public StorageContext() : base("Exercise12")
         {
         }
-        public DbSet<Models.Vehicle> Vehicles { get; set; }
+        public DbSet<Models.ParkedVehicle> Vehicles { get; set; }
     }
 }

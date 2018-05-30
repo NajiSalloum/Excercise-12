@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MVCGarage2.Models
 {
-    public class Vehicle
+    public class ParkedVehicle
     {
         [Required]
         public int Id { get; set; }
