@@ -65,7 +65,7 @@ namespace MVCGarage2.Controllers
 
             var queryDictionary = new RouteValueDictionary();
             if (Regnr != "")
-                queryDictionary.Add("Regnr",Regnr);
+                queryDictionary.Add("Regnr", Regnr);
             if (Type != null)
                 queryDictionary.Add("Type", Type);
             if (Color != null)
@@ -93,7 +93,8 @@ namespace MVCGarage2.Controllers
             ParkedVehicle vehicle = db.Vehicles.Find(id);
             if (vehicle == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Overview");
+                //return HttpNotFound();
             }
             return View(vehicle);
         }
@@ -177,9 +178,13 @@ namespace MVCGarage2.Controllers
             if (id == null)
             {
                 return RedirectToAction("Overview");
-                //                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ParkedVehicle v = db.Vehicles.Find(id);
+            if (v == null)
+            {
+                return RedirectToAction("Overview");
+            }
             VehicleCheckOut vehicle = new VehicleCheckOut(v.Id, v.Regnr, v.ParkedTime, DateTime.Now);
             if (vehicle == null)
             {
@@ -194,6 +199,10 @@ namespace MVCGarage2.Controllers
         public ActionResult Receipt(int id)
         {
             ParkedVehicle v = db.Vehicles.Find(id);
+            if (v == null)
+            {
+                return HttpNotFound();
+            }
             db.Vehicles.Remove(v);
             db.SaveChanges();
 
