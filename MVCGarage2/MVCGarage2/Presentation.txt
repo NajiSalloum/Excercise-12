@@ -4,7 +4,8 @@
   Flexboxing to center content
 .
 
-List (Overview)
+List (Overview) A
+  (Special model)
   Sort links with glyphicons
   Pageing
   (Functionality of search)
@@ -21,7 +22,7 @@ Reg (Pre-CheckIn)
 Park (Parked, CheckIn)
 .
 
-Search
+Search A
   Autofocus
   Dropdowns
   Autocomplete
@@ -37,7 +38,6 @@ Check out (pre-)
   Button (yay)
 
 Receipt
-  (Special model)
   (show formating through UIHint-attribute)
   Print button (JS-script)
   Print style

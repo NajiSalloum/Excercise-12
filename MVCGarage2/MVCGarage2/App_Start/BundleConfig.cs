@@ -12,7 +12,7 @@ namespace MVCGarage2
                         "~/Scripts/VehicleRegister.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/vehicleprintout").Include(
-                        "~/Scripts/PrintOut.js"));
+                        "~/Scripts/VehiclePrintOut.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/vehiclesearch").Include(
                         "~/Scripts/VehicleSearch.js",
